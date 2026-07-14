@@ -35,19 +35,31 @@ moved to Python for consistency with other figure formatting], S2, S3, S5, S6).
 
 ## Data availability
 
-Most of the data used by these scripts is included in `data/`. Two large
-inputs are not bundled here - download them from their original public
-sources and place them at the paths below before running
+Most of the data used by these scripts is included in `data/`. A few inputs
+are not bundled here - download them from their original public sources
+and place them at the paths below before running
 `00_setup_and_data_prep.R`:
 
 - **CMAQ smoke PM2.5 rasters** (`data/CMAQ Daily Rasters/2008_fireonly.tif` ... `2018_fireonly.tif`):
   available at [https://doi.org/10.5061/dryad.sxksn03b3](https://doi.org/10.5061/dryad.sxksn03b3)
 - **WUI block shapefile** (`data/Shapefiles/CA_wui_block_1990_2020_change_v4_repr.*`):
   available at [https://silvis.forest.wisc.edu/data/wui-change/](https://silvis.forest.wisc.edu/data/wui-change/)
+- **Fire perimeters** (`data/Shapefiles/fire22_1.gdb/`): available from CAL FIRE's Fire and Resource
+  Assessment Program (FRAP) at [https://www.fire.ca.gov/what-we-do/fire-resource-assessment-program/fire-perimeters](https://www.fire.ca.gov/what-we-do/fire-resource-assessment-program/fire-perimeters)
+- **Land ownership** (`data/Shapefiles/ownership23_1.*`): available at
+  [https://gis.data.ca.gov/datasets/bd68c63f1905437a879115380b1f0201_0/explore](https://gis.data.ca.gov/datasets/bd68c63f1905437a879115380b1f0201_0/explore?location=37.272105%2C-119.276634%2C6)
+- **California ZIP code boundaries** (`data/Shapefiles/zip_poly.*`): available at
+  [https://gis.data.ca.gov/datasets/f7afe55481244706903fbe6be5e986d3_0/explore](https://gis.data.ca.gov/datasets/f7afe55481244706903fbe6be5e986d3_0/explore?location=42.312350%2C0.315600%2C1)
 
-A third file, `data/Shapefiles/fire_count_exc_wui.shp`, is also not bundled
+For the last three datasets (too large to upload through
+GitHub) the links above point to current public versions of the same datasets,
+which may be more up to date than what was used in the original analysis.
+For the exact versions used here, contact the study authors 
+(Rachel Connolly at rachelconnolly@g.ucla.edu).
+
+A sixth file, `data/Shapefiles/fire_count_exc_wui.shp`, is also not bundled
 here - it's an intermediate output of the pipeline in
 `04_table4_combined_exposure_and_figure4.R` (fire count + NAAQS exceedance
-days per WUI block), not a primary input. Once the two datasets above are
-in place, regenerate it by uncommenting the `st_write()` line just above
+days per WUI block), not a primary input. Once the datasets above are in
+place, regenerate it by uncommenting the `st_write()` line just above
 where it's read in that script and running the script once.
